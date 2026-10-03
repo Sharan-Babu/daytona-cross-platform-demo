@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Windows Apps with Daytona"
+  short_description: "Test desktop apps in disposable Daytona Windows VMs"
+  default_prompt: "Use $test-windows-apps-with-daytona to test this application on a disposable Windows sandbox and return evidence."

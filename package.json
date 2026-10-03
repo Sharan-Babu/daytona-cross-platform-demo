@@ -1,0 +1,31 @@
+{
+  "name": "daytona-cross-platform-desktop-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Test an Electron desktop app from macOS on a disposable Daytona Windows sandbox.",
+  "main": "app/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "npm run test:unit && npm run test:electron",
+    "test:unit": "node --test tests/unit.test.cjs",
+    "test:electron": "playwright test",
+    "daytona:preflight": "tsx scripts/daytona/preflight.ts",
+    "daytona:terminal": "tsx scripts/daytona/terminal-test.ts",
+    "daytona:playwright": "tsx scripts/daytona/playwright-test.ts",
+    "daytona:computer-use": "tsx scripts/daytona/computer-use-test.ts",
+    "daytona:trycua": "tsx scripts/daytona/trycua-probe.ts",
+    "daytona:mcp-probe": "node scripts/mcp-probe.mjs",
+    "daytona:all": "tsx scripts/daytona/run-all.ts",
+    "daytona:cleanup": "tsx scripts/daytona/cleanup.ts",
+    "test:orchestration": "tsx --test tests/orchestration.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@daytona/sdk": "0.198.0",
+    "@playwright/test": "1.61.1",
+    "electron": "39.8.10",
+    "tsx": "4.23.1",
+    "typescript": "5.9.3"
+  }
+}

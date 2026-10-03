@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:" />
+    <title>Platform Pulse</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div><strong>Platform Pulse</strong><small>Desktop QA console</small></div>
+        </div>
+        <nav aria-label="Demo sections">
+          <button class="nav-item active" data-target="overview"><span>◈</span> Overview</button>
+          <button class="nav-item" data-target="diagnostics"><span>✓</span> Diagnostics</button>
+          <button class="nav-item" data-target="notes"><span>✎</span> QA note</button>
+        </nav>
+        <div class="sandbox-card">
+          <span class="live-dot"></span>
+          <div><strong>Sandbox ready</strong><small id="sandbox-detail">Detecting host…</small></div>
+        </div>
+      </aside>
+
+      <main>
+        <header>
+          <div>
+            <p class="eyebrow">CROSS-PLATFORM VALIDATION</p>
+            <h1>Good morning, developer.</h1>
+            <p class="subtitle">One app. Real operating systems. Verifiable results.</p>
+          </div>
+          <button id="run-diagnostics" class="primary" data-testid="run-diagnostics">
+            <span>▶</span> Run full check
+          </button>
+        </header>
+
+        <section id="overview" class="panel-section active-section">
+          <div class="hero-card">
+            <div class="platform-orb"><span id="platform-monogram">…</span></div>
+            <div class="hero-copy">
+              <span class="status-chip"><i></i> Native runtime detected</span>
+              <h2 id="platform-name" data-testid="platform-name">Loading platform…</h2>
+              <p id="platform-summary">Collecting secure, read-only host metadata through Electron.</p>
+            </div>
+            <div class="score-ring"><strong id="readiness-score">--</strong><small>readiness</small></div>
+          </div>
+
+          <div class="metric-grid">
+            <article><span>ARCHITECTURE</span><strong id="arch-value">—</strong><small>Native process</small></article>
+            <article><span>OS RELEASE</span><strong id="release-value">—</strong><small>Kernel/build</small></article>
+            <article><span>MEMORY</span><strong id="memory-value">—</strong><small>Available to host</small></article>
+            <article><span>ELECTRON</span><strong id="electron-value">—</strong><small>Desktop runtime</small></article>
+          </div>
+
+          <div class="split-grid">
+            <article class="card">
+              <div class="card-heading"><div><p class="eyebrow">RUNTIME SIGNAL</p><h3>Compatibility path</h3></div><span class="tag">LIVE</span></div>
+              <div class="route">
+                <div><span>1</span><strong>macOS developer</strong><small>Build & orchestrate</small></div>
+                <b>→</b>
+                <div><span>2</span><strong>Daytona VM</strong><small>Isolate & execute</small></div>
+                <b>→</b>
+                <div><span>3</span><strong id="route-platform">Target OS</strong><small>Observe & verify</small></div>
+              </div>
+            </article>
+            <article class="card native-card">
+              <div><p class="eyebrow">NATIVE PROOF</p><h3>Open an OS dialog</h3><p>Exercise a real desktop surface beyond the browser DOM.</p></div>
+              <button id="native-proof" class="secondary" data-testid="native-proof">Open dialog</button>
+            </article>
+          </div>
+        </section>
+
+        <section id="diagnostics" class="panel-section">
+          <div class="section-title"><div><p class="eyebrow">AUTOMATED CHECKS</p><h2>Diagnostic matrix</h2></div><span id="diagnostic-state" class="neutral-chip">Not run</span></div>
+          <div id="diagnostic-list" class="diagnostic-list" data-testid="diagnostic-list">
+            <div class="empty-state">Run the full check to exercise Electron, IPC, native filesystem access, and platform detection.</div>
+          </div>
+        </section>
+
+        <section id="notes" class="panel-section">
+          <div class="section-title"><div><p class="eyebrow">PERSISTENCE CHECK</p><h2>Windows QA note</h2></div><span id="save-state" class="neutral-chip">Unsaved</span></div>
+          <label for="qa-note">Observation from this test run</label>
+          <textarea id="qa-note" data-testid="qa-note" maxlength="500" placeholder="Example: Layout, native dialog, and keyboard input verified on Windows Server 2025."></textarea>
+          <div class="note-footer"><small><span id="note-count">0</span>/500 characters</small><button id="save-note" class="primary" data-testid="save-note">Save to this OS</button></div>
+        </section>
+
+        <footer><span id="host-name">Host: —</span><span>•</span><span id="runtime-versions">Node — · Chrome —</span></footer>
+      </main>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
+
